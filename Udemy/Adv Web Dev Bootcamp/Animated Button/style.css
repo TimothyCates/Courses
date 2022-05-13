@@ -24,3 +24,8 @@
     box-shadow: 0 4px #efa424;
     top: 2px;
 }
+
+.btn:active{
+    box-shadow: none;
+    top: 6px;
+}
