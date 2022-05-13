@@ -19,3 +19,8 @@
     border-radius: 20px;
     box-shadow: 0 6px #efa424;
 }
+
+.btn:hover{
+    box-shadow: 0 4px #efa424;
+    top: 2px;
+}
