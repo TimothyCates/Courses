@@ -84,3 +84,7 @@ div.item.green i {
 div.item:hover img {
     opacity: 0.3;
 }
+
+div.item * {
+    transition: all 0.4s ease-in-out
+}
