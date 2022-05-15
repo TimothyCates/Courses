@@ -80,3 +80,7 @@ div.item.green {
 div.item.green i {
     color: #16a085;
 }
+
+div.item:hover img {
+    opacity: 0.3;
+}
