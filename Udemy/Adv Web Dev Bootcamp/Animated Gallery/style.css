@@ -83,8 +83,10 @@ div.item.green i {
 
 div.item:hover img {
     opacity: 0.3;
+    filter: grayscale(100);
+
 }
 
 div.item * {
-    transition: all 0.4s ease-in-out
+    transition: all 0.4s ease-in-out;
 }
