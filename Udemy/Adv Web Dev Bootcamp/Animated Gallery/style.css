@@ -81,10 +81,13 @@ div.item.green i {
     color: #16a085;
 }
 
+div.item:hover {
+    cursor: pointer
+}
+
 div.item:hover img {
     opacity: 0.3;
     filter: grayscale(100);
-
 }
 
 div.item * {
