@@ -22,3 +22,11 @@
         font-size: 20px;
     }
 }
+
+h1 {
+    animation-name: rainbow-text;
+    animation-duration: 3s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+}
