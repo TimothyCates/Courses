@@ -90,3 +90,11 @@ div.item:hover img {
 div.item * {
     transition: all 0.4s ease-in-out;
 }
+
+div.item i {
+    transform: translate(-50%, -50%) scale(0);
+}
+
+div.item:hover i {
+    transform: translate(-50%, -50%) scale(1);
+}
