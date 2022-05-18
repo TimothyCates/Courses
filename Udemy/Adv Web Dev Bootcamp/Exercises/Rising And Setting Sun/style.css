@@ -27,7 +27,7 @@
 @keyframes Sun {
     0% {
         background-color: #f1a20f;
-        transform: translateY(100px);
+        transform: translate(-100px, 200px);
     }
 
     25% {
@@ -41,12 +41,12 @@
 
     75% {
         background-color: #f1c40f;
-        transform: translateY(1290px, -100px)
+        transform: translateY(1290px, -50px)
     }
 
     100% {
         background-color: #f1750f;
-        transform: translate(1720px, 100px);
+        transform: translate(1720px, 200px);
     }
 }
 
