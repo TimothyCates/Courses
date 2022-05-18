@@ -1,9 +1,13 @@
-# Animated Gallery Follow-Along
+# Animated Gallery
+
 ## Goal
+
 This is just a place for me to place the code of following Colt, making an unanimated gallery, animated. Serves no practical purpose or interest but just a place for me to put said code.
 
 ## Starter Code
+
 ### Html
+
 ```html
 <h1>An Image Gallery</h1>
 <div class="container">
@@ -25,6 +29,7 @@ This is just a place for me to place the code of following Colt, making an unani
 </div>
 ```
 ### Css
+
 ```css
 @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);
 @import url('https://fonts.googleapis.com/css?family=Raleway:200');
