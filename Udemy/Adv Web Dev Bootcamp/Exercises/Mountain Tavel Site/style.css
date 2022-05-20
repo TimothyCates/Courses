@@ -20,6 +20,28 @@ nav {
     padding: 10px;
     display: flex;
     justify-content: space-between;
+    padding: 40px;
+    margin: 0 auto;
+    width: 90%;
+    font-family: 'Montserrat', 'san-serif';
+    font-size: 16px;
+}
+
+#logo {
+    font-family: 'Open Sans', 'san-serif';
+    font-size: 22px;
+    cursor: pointer;
+}
+
+nav div a {
+    text-decoration: none;
+    color: white;
+    padding: 0 10px;
+}
+
+nav div a:hover,
+nav a:hover {
+    color: rgba(255, 255, 255, 0.74);
 }
 
 #hero {
@@ -29,6 +51,30 @@ nav {
     justify-content: center;
     flex-grow: 1;
     align-items: center;
+}
+
+h1 {
+    font-family: 'Open Sans', 'san-serif';
+    font-size: 62px;
+}
+
+#hero p {
+    font-family: 'Montserrat', 'san-serif';
+    font-size: 28px;
+    margin: 15px auto;
+}
+
+#hero button {
+    border-radius: 6px;
+    background-color: rgb(68, 52, 216);
+}
+
+#hero button:hover {
+    background-color: rgb(87, 71, 230);
+}
+
+#hero button:active {
+    background-color: rgb(75, 62, 192);
 }
 
 article {
