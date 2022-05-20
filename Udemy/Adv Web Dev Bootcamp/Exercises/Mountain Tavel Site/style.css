@@ -161,3 +161,30 @@ button:hover {
 button:active {
     background-color: rgba(54, 40, 177, 0.856);
 }
+
+footer {
+    font-family: 'Montserrat', 'san-serif';
+    background-color: rgba(67, 112, 138, 0.658);
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    min-height: 40px;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 0 20px;
+}
+
+footer * {
+    margin: 20px 0;
+}
+
+footer a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.808)
+}
+
+footer a:hover {
+    color: rgba(210, 222, 238, 0.884);
+    text-decoration: underline;
+}
