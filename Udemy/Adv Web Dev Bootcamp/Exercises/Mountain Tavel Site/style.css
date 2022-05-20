@@ -51,6 +51,7 @@ nav a:hover {
     justify-content: center;
     flex-grow: 1;
     align-items: center;
+    text-align: center;
 }
 
 h1 {
@@ -233,4 +234,37 @@ footer a {
 footer a:hover {
     color: rgba(210, 222, 238, 0.884);
     text-decoration: underline;
+}
+
+@media screen and (max-width: 1300px) {
+    .gallery {
+        justify-content: center;
+    }
+
+    .gallery div:nth-child(2),
+    .gallery div:nth-child(3) {
+        flex-basis: 45%;
+    }
+
+    .gallery div {
+        flex-basis: 45%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .gallery {
+        justify-content: center;
+    }
+
+    .gallery div:nth-child(2),
+    .gallery div:nth-child(3),
+    .gallery div {
+        flex-basis: 100%;
+    }
+
+    nav {
+        width: 100%;
+        text-align: center;
+    }
+
 }
