@@ -103,3 +103,16 @@ article:nth-child(odd) {
     color: rgb(138, 127, 233);
     ;
 }
+
+figure {
+    margin: 20px auto;
+    padding: 15px 0;
+    font-family: 'Montserrat', 'san-serif';
+    font-size: 22px;
+    text-align: center;
+    width: 48%;
+}
+
+figcaption {
+    margin: 40px auto;
+}
