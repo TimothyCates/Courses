@@ -30,3 +30,37 @@ nav {
     flex-grow: 1;
     align-items: center;
 }
+
+article {
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+article h2,
+article p,
+.tour_package {
+    text-align: center;
+    color: rgba(46, 46, 46, 0.904);
+}
+
+.gallery {
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 25px;
+}
+
+.gallery div:nth-child(2),
+.gallery div:nth-child(3) {
+    flex-basis: 70%;
+}
+
+.gallery div {
+    height: 350px;
+    background-clip: content-box;
+    background-size: cover;
+    background-position: center;
+    flex-basis: 30%;
+    min-width: 350px;
+    padding: 10px;
+}
