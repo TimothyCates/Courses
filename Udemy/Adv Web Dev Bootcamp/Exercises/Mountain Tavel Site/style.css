@@ -55,13 +55,11 @@ article h2 {
 
 
 hr {
-    max-width: 30%;
-    min-width: 300px;
-    margin: auto;
-    height: 0px;
+    width: 300px;
     border: none;
     border: 2px solid rgba(54, 40, 177, 0.705);
     border-radius: 25px;
+    margin: 25px auto;
 }
 
 .gallery {
@@ -90,4 +88,18 @@ article:nth-child(odd) {
     background-color: rgba(138, 127, 233, 0.075);
     margin: 0;
     padding: 20px;
+}
+
+.tour_packages {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tour_package p {
+    width: 80%;
+}
+
+.tour_package svg {
+    color: rgb(138, 127, 233);
+    ;
 }
