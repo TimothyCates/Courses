@@ -3,14 +3,13 @@ let router = express.Router();
 let helper = require("../helpers/todos")
 
 
-router.get('/', helper.getTodos)
+router.route('/')
+    .get(helper.getTodos)
+    .post(helper.addTodo)
 
-router.post('/', helper.addTodo)
-
-router.get('/:todoId', helper.getTodo)
-
-router.put('/:todoId', helper.updateTodo)
-
-router.delete('/:todoId', helper.deleteTodo)
+router.route('/:todoId')
+    .get(helper.getTodo)
+    .put(helper.updateTodo)
+    .delete(helper.deleteTodo)
 
 module.exports = router
