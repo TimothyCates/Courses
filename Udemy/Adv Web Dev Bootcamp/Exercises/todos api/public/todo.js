@@ -21,7 +21,6 @@ const fetchOpts = (mode = 'GET', body) => {
 
 const renderTodos = (todosArr) => {
     const list = document.getElementsByClassName('list')[0]
-    list.innerHTML = ""
     todosArr.forEach(todo => {
         let task = document.createElement('li')
         task.setAttribute('class', `task${todo.completed ? ' done' : ''}`)
@@ -39,7 +38,7 @@ const handleInput = (event) => {
                 return res.json()
             })
             .then(data => {
-                console.log(data)
+                renderTodos([data])
             })
             .catch(err => {
                 console.log(err)
