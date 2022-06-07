@@ -6,11 +6,17 @@ const docReady = (fn) => {
     }
 }
 
-const fetchOpts = (mode) => {
-    return {
+const fetchOpts = (mode = 'GET', body) => {
+    let request = {
         method: mode,
         mode: 'same-origin',
+        headers: {
+            'Content-Type': 'application/json'
+        },
     }
+    if (body != undefined)
+        request.body = JSON.stringify(body)
+    return request
 }
 
 const renderTodos = (todosArr) => {
@@ -25,8 +31,26 @@ const renderTodos = (todosArr) => {
     });
 }
 
+const handleInput = (event) => {
+    if (event.which == 13) {
+        let input = document.getElementById('todoInput')
+        fetch('/api/todos', fetchOpts('POST', { name: input.value }))
+            .then(res => {
+                return res.json()
+            })
+            .then(data => {
+                console.log(data)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+        input.value = '';
+    }
+}
+
 docReady(() => {
-    fetch('/api/todos', fetchOpts)
+    document.getElementById('todoInput').addEventListener('keypress', handleInput)
+    fetch('/api/todos', fetchOpts())
         .then(res => {
             return res.json()
         })
