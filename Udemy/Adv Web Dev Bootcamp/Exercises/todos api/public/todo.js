@@ -17,12 +17,11 @@ const renderTodos = (todosArr) => {
     const list = document.getElementsByClassName('list')[0]
     list.innerHTML = ""
     todosArr.forEach(todo => {
-        let classNames = ['task']
-        if (todo.completed)
-            classNames.push('done')
-        list.innerHTML += `<li id="${todo._id}" class="${classNames.join(' ')}">
-            ${todo.name}
-            </li>\n`;
+        let task = document.createElement('li')
+        task.setAttribute('class', `task${todo.completed ? ' done' : ''}`)
+        task.setAttribute('id', todo._id)
+        task.innerText = todo.name
+        list.append(task)
     });
 }
 
