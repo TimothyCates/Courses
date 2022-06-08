@@ -47,8 +47,24 @@ const handleInput = (event) => {
     }
 }
 
+const handleClick = (event) => {
+    let target = event.target;
+    if(target.tagName == 'SPAN'){
+      console.log(target.parentElement.getAttribute('id'))  
+      let todoId = target.parentElement.getAttribute('id')  
+        fetch(`/api/todos/${todoId}`, fetchOpts('DELETE'))
+        .then(res => {
+            target.parentElement.remove();
+        }).catch(err => {
+            console.log(err)
+        })
+    }else{
+    }
+}
+
 docReady(() => {
     document.getElementById('todoInput').addEventListener('keypress', handleInput)
+    document.getElementsByClassName('list')[0].addEventListener('click', handleClick)
     fetch('/api/todos', fetchOpts())
         .then(res => {
             return res.json()
