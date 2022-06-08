@@ -82,3 +82,17 @@ li span:hover {
   color: white;
   background-color: #c0392b;
 }
+/*****************************Error STYLES*****************************/
+#Error {
+	width: 800px;
+	margin: 50px auto 20px;
+    background-color: #c0392b;
+    border: 1px black solid;
+    padding: 10px;
+    color: white;
+    opacity: 0;
+}
+
+#Error span{
+    font-weight: bold;
+}

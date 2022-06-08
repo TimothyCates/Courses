@@ -30,18 +30,34 @@ const renderTodos = (todosArr) => {
     });
 }
 
+const clearError = () => {
+    const errorBox = document.getElementById('Error')
+    errorBox.innerText = ""
+    errorBox.style.opacity = 0
+}
+
+const renderError = (error) => {
+    const errorBox = document.getElementById('Error')
+    errorBox.innerText = error
+    errorBox.style.opacity = 100
+}
+
 const handleInput = (event) => {
     if (event.which == 13) {
         let input = document.getElementById('todoInput')
         fetch('/api/todos', fetchOpts('POST', { name: input.value }))
             .then(res => {
+                if(!res.ok){
+                    throw new Error(res.statusText)
+                }
+                clearError()
                 return res.json()
             })
             .then(data => {
                 renderTodos([data])
             })
             .catch(err => {
-                console.log(err)
+                renderError(err)
             })
         input.value = '';
     }
@@ -53,20 +69,29 @@ const handleClick = (event) => {
       let todoId = target.parentElement.getAttribute('id')  
         fetch(`/api/todos/${todoId}`, fetchOpts('DELETE'))
         .then(res => {
+            if(!res.ok){
+                throw new Error(res.statusText)
+            }
+            clearError()
             target.parentElement.remove();
         }).catch(err => {
-            console.log(err)
+            renderError(err)
         })
     }else{
         let todoId = target.getAttribute('id')
         fetch(`/api/todos/${todoId}`, fetchOpts('PUT', {
             completed: !target.classList.contains('done')
         }))
-        .then(() => {
+        .then((res) => {
+            if(!res.ok){
+                console.log(res)
+                throw new Error(res.statusText)
+            }
+            clearError()
             target.classList.toggle('done')
         })
         .catch(err => {
-            console.log(err)
+           renderError(err)
         })
     }
 }
@@ -82,6 +107,6 @@ docReady(() => {
             renderTodos(data);
         })
         .catch(err => {
-            console.log(err)
+          renderError(err)
         })
 })
