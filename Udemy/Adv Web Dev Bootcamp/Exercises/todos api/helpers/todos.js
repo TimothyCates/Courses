@@ -16,7 +16,7 @@ exports.addTodo = (req, res) => {
         res.status(201).json(newTodo)
     })
     .catch(err => {
-        res.send(err);
+        res.status(400).send(err);
     })
 }
 
@@ -26,7 +26,7 @@ exports.getTodo = (req, res) => {
         res.json(todo)
     })
     .catch(err => {
-        res.send(err)
+        res.status(400).send(err)
     })
 }
 
@@ -36,7 +36,7 @@ exports.updateTodo = (req, res) => {
         res.json(todo)
     })
     .catch(err => {
-        res.send(err)
+        res.status(400).send(err)
     })
 }
 
@@ -46,6 +46,6 @@ exports.deleteTodo = (req, res) => {
         res.json(todo)
     })
     .catch(err => {
-        res.send(err)
+        res.status(400).send(err)
     })
 }
