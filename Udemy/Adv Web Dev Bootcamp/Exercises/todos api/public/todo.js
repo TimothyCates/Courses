@@ -50,7 +50,6 @@ const handleInput = (event) => {
 const handleClick = (event) => {
     let target = event.target;
     if(target.tagName == 'SPAN'){
-      console.log(target.parentElement.getAttribute('id'))  
       let todoId = target.parentElement.getAttribute('id')  
         fetch(`/api/todos/${todoId}`, fetchOpts('DELETE'))
         .then(res => {
@@ -59,6 +58,16 @@ const handleClick = (event) => {
             console.log(err)
         })
     }else{
+        let todoId = target.getAttribute('id')
+        fetch(`/api/todos/${todoId}`, fetchOpts('PUT', {
+            completed: !target.classList.contains('done')
+        }))
+        .then(() => {
+            target.classList.toggle('done')
+        })
+        .catch(err => {
+            console.log(err)
+        })
     }
 }
 
