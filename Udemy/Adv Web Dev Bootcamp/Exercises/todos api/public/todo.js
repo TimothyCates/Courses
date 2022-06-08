@@ -25,7 +25,7 @@ const renderTodos = (todosArr) => {
         let task = document.createElement('li')
         task.setAttribute('class', `task${todo.completed ? ' done' : ''}`)
         task.setAttribute('id', todo._id)
-        task.innerText = todo.name
+        task.innerHTML = `${todo.name} <span>x</span>`
         list.append(task)
     });
 }
