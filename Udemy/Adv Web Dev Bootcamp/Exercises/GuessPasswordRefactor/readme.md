@@ -1,93 +1,100 @@
-# Todo's App
+# Guess The Password Refactor
 
-The idea behind this project is to first learn to make a simple express api, and then attach a single page application to it. This being web development the first application is a todo application. This course wants to use jquery for handling XHR's but, I'm going to take the liberty of using fetch, at the time this course was made fetch did not have great browser support, and now it does.
+The goal of this exercise is to look at someone else's code and to refactor it to use ES2015, since building things may be more interesting and fun, in general you'll be working off of an existing code-base
 
 ## Included Code
 
-The goal of this lesson was not to learn to style an app, but more on building the actual app so style's we're included.
+```javascript
+document.addEventListener('DOMContentLoaded', function() {
+  var wordCount = 10;
+  var guessCount = 4;
+  var password = '';
 
-### Css
+  var start = document.getElementById('start');
+  start.addEventListener('click', function() {
+    toggleClasses(document.getElementById('start-screen'), 'hide', 'show');
+    toggleClasses(document.getElementById('game-screen'), 'hide', 'show');
+    startGame();
+  });
 
-```Css
-@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,700'); 
- 
-body {
-	font-family: 'Montserrat', sans-serif;
-	background: #ecf0f1;
-}
+  function toggleClasses(element) {
+    for (var i = 1; i < arguments.length; i++) {
+      element.classList.toggle(arguments[i]);
+    }
+  }
 
-/*****************************HEADER STYLES*****************************/
-header {
-	text-align: center;
-}
-header h1 {
-	font-size: 64px;
-	font-weight: 300;
-	margin: 80px 0 25px;
-	color: #2c3e50;
-}
-header h1 span {
-	font-weight: 700;
-}
-header h2 {
-	color: #bdc3c7;
-	font-weight:300;
-}
-/*****************************FORM STYLES*****************************/
+  function startGame() {
+    // get random words and append them to the DOM
+    var wordList = document.getElementById('word-list');
+    // 'words' variable is from words.js
+    var randomWords = getRandomValues(words, wordCount); // eslint-disable-line no-undef
+    randomWords.forEach(function(word) {
+      var li = document.createElement('li');
+      li.innerText = word;
+      wordList.appendChild(li);
+    });
 
-.form {
-	width: 800px;
-	margin: 50px auto 20px;
-}
+    // set a secret password and the guess count display
+    password = getRandomValues(randomWords, 1)[0];
+    setGuessCount(guessCount);
 
-#todoInput {
-	width: 100%;
-	height: 60px;
-	background: none;
-	border: none;
-	border-bottom: 1px solid #34495e;
-	outline: none;
-	font: 300 28px 'Ubuntu', sans-serif;
-	padding: 20px;
-	color: #34495e;
-}
+    // add update listener for clicking on a word
+    wordList.addEventListener('click', updateGame);
+  }
 
-/*****************************LIST STYLES*****************************/
-.list {
-	width: 800px;
-	margin: 0 auto;
-}
-.task {
-	width: 100%;
-	height: 60px;
-	line-height: 60px;
-	font-size: 20px;
-	padding: 0 20px;
-	color: #34495e;
-	transition: all .3s ease;
-}
-.task:hover {
-	background: rgba(0, 0, 0, .02);
-	cursor: pointer;
-}
+  function getRandomValues(array, numberOfVals) {
+    return shuffle(array).slice(0, numberOfVals);
+  }
 
-.task:hover span{
-	opacity: 1;
-}
+  function shuffle(array) {
+    var arrayCopy = array.slice();
+    for (var idx1 = arrayCopy.length - 1; idx1 > 0; idx1--) {
+      // generate a random index between 0 and idx1 (inclusive)
+      var idx2 = Math.floor(Math.random() * (idx1 + 1));
 
-.done {
-	text-decoration: line-through;
-	color: #bdc3c7;
-}
+      // swap elements at idx1 and idx2
+      var temp = arrayCopy[idx1];
+      arrayCopy[idx1] = arrayCopy[idx2];
+      arrayCopy[idx2] = temp;
+    }
+    return arrayCopy;
+  }
 
-li span {
-  float: right;
-  color: #c0392b;
-  transition: all 0.3s;
-  opacity: 0;
-}
+  function setGuessCount(newCount) {
+    guessCount = newCount;
+    document.getElementById('guesses-remaining').innerText =
+      'Guesses remaining: ' + guessCount + '.';
+  }
 
-li span:hover {
-  color: #e74c3c
-}
+  function updateGame(e) {
+    if (e.target.tagName === 'LI' && !e.target.classList.contains('disabled')) {
+      // grab guessed word, check it against password, update view
+      var guess = e.target.innerText;
+      var similarityScore = compareWords(guess, password);
+      e.target.classList.add('disabled');
+      e.target.innerText = guess + ' --> Matching Letters: ' + similarityScore;
+      setGuessCount(guessCount - 1);
+
+      // check whether the game is over
+      if (similarityScore === password.length) {
+        toggleClasses(document.getElementById('winner'), 'hide', 'show');
+        this.removeEventListener('click', updateGame);
+      } else if (guessCount === 0) {
+        toggleClasses(document.getElementById('loser'), 'hide', 'show');
+        this.removeEventListener('click', updateGame);
+      }
+    }
+  }
+
+  function compareWords(word1, word2) {
+    if (word1.length !== word2.length) {
+      throw 'Words must have the same length';
+    }
+    var count = 0;
+    for (var i = 0; i < word1.length; i++) {
+      if (word1[i] === word2[i]) count++;
+    }
+    return count;
+  }
+});
 ```
