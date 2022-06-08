@@ -74,8 +74,11 @@ li span {
   color: #c0392b;
   transition: all 0.3s;
   opacity: 0;
+  font-weight: bold;
+  padding: 0px 14px;
 }
 
 li span:hover {
-  color: #e74c3c
+  color: white;
+  background-color: #c0392b;
 }
