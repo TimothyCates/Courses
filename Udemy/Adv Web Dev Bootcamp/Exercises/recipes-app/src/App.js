@@ -1,9 +1,32 @@
 import './App.css';
 import Recipe from './components/recipe/recipe'
+import Navbar from "./components/navbar/navbar"
+
+const NavLink = [
+    {
+        src:  "#NewRecipe",
+        text: "New Recipe"
+    },
+    {
+        src:  "./",
+        text: "Home"
+    },
+    {
+        src:  "#About",
+        text: "About"
+    },
+    {
+        src:  "#Contact",
+        text: "Contact Us"
+    },
+]
+
+
 
 function App() {
     return (
         <div>
+            <Navbar title="Recipe App" links={NavLink}/>
             <Recipe
                 title='Pasta'
                 ingredients={['Pasta sauce', 'Water', 'Noods']}
