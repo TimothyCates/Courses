@@ -12,6 +12,7 @@ class Recipe extends Component {
     static propTypes = {
         title: PropTypes.string.isRequired,
         steps: PropTypes.string.isRequired,
+        img: PropTypes.string,
         ingredients: PropTypes.arrayOf(PropTypes.string).isRequired,
     }
 
@@ -29,7 +30,7 @@ class Recipe extends Component {
                     <img alt={title} src={img} className={hasImage ? "" : "no-zoom"}/>
                 </div>
                 <div className="recipe-card-content">
-                    <h3 className="recipe-card-title">Recipe {title}</h3>
+                    <h3 className="recipe-card-title">{title}</h3>
                     <h4>Ingredients:</h4>
                     <ul>
                         {ingredients}
