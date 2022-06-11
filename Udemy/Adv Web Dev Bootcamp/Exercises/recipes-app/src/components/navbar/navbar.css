@@ -1,0 +1,35 @@
+.navbar{
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+    background-color: #212738; 
+    font-family: 'Montserrat';
+    color: white;
+}
+
+.navbar-title{
+    align-self: center;
+    font-weight: bolder;
+    font-size: 1.5em;
+}
+.navbar ul{
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+}
+
+.navbar a{
+    text-decoration: none;
+    color: white;
+}
+.navbar a:visited{
+    color: white;
+}
+
+.navbar a:hover{
+    text-decoration: underline;
+}
+
+.navbar ul li{
+    margin: 0 15px;
+}
