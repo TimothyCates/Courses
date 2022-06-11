@@ -1,6 +1,7 @@
 import './App.css';
 import Navbar from "./components/navbar/navbar"
 import RecipeList from "./components/recipe-list/recipe-list"
+import Recipes from "./recipes"
 
 const NavLink = [
     {
@@ -27,7 +28,7 @@ function App() {
     return (
         <div>
             <Navbar title="Recipe App" links={NavLink} />
-            <RecipeList />
+            <RecipeList recipes={Recipes} />
         </div>
     );
 }
