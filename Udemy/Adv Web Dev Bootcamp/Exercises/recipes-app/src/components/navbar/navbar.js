@@ -27,7 +27,9 @@ class navbar extends Component {
 
         return (
             <nav className="navbar">
+            <span className="navbar-title">
                 { title }
+            </span>
                 <ul>
                     {navLinks} 
                 </ul>    
