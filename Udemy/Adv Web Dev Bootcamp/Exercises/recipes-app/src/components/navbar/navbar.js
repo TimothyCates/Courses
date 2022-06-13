@@ -22,7 +22,7 @@ class navbar extends Component {
             <a href='./'>{this.props.title}</a>
         )
         const navLinks = this.props.links.map((link, index) => (
-            <li><a href={link.src}>{link.text}</a></li>
+            <li key={index}><a href={link.src}>{link.text}</a></li>
         ));
 
         return (
