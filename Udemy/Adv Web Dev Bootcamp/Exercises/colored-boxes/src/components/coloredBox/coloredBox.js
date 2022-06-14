@@ -1,9 +1,14 @@
 
-const coloredBox = () => {
+const coloredBox = ({color, size}) => {
+    const style = {
+        backgroundColor: color,
+        height: size,
+        width: size,
+    }
     return (
-        <div  className="coloredBox.box">
+        <div style={style} className="coloredBox-box">
         </div>
     )
 }
 
-export default coloredBox.box
+export default coloredBox
