@@ -43,7 +43,7 @@ class App extends Component {
         setInterval(() => {
             let i = Math.floor(Math.random() * this.state.boxCount)
             this.changeBoxColor(i, App.getRandColor());
-        }, 1000)
+        }, 300)
     }
 
     static getRandColor = () => {
