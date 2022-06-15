@@ -1,5 +1,7 @@
 import { Component } from 'react'
 import ColoredBoxList from './components/coloredBoxList/coloredBoxList'
+import ColoredBox from "./components/coloredBox/coloredBox";
+
 const colors = [
     "#212738",
     "#F97068",
@@ -31,14 +33,63 @@ const colors = [
 ]
 
 class App extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            boxCount: 60,
+            boxSize: 150,
+            boxes: [],
+        }
+        setInterval(() => {
+            let i = Math.floor(Math.random() * this.state.boxCount)
+            this.changeBoxColor(i, App.getRandColor());
+        }, 1000)
+    }
+
+    static getRandColor = () => {
+        let i = Math.floor(Math.random() * colors.length);
+        return colors[i];
+    }
+
+    changeBoxColor = (boxI, color) => {
+        this.setState((prev) => {
+            let nBoxes = [...prev.boxes]
+            nBoxes[boxI] = <ColoredBox
+                color={color}
+                size={this.state.boxSize}
+            />
+            return {
+                ...prev,
+                boxes: nBoxes
+            }
+        })
+    }
+
+    genBoxes = () => {
+        let boxes = []
+        for (let i = 0; i < this.state.boxCount; i++) {
+            boxes.push(<ColoredBox
+                color={App.getRandColor()}
+                size={this.state.boxSize}
+            />)
+        }
+        return boxes;
+    }
+
     render() {
-        const boxCount = 300
-        const boxSize = 75
+        if (this.state.boxes.length < this.state.boxCount) {
+            this.setState((prev) => {
+                return {
+                    ...prev,
+                    boxes: this.genBoxes()
+                }
+            })
+        }
 
         return (
-            <div>
-                <ColoredBoxList colors={colors} size={boxSize} count={boxCount} />
-            </div>
+            <ColoredBoxList>
+                {this.state.boxes}
+            </ColoredBoxList>
         )
     }
 }
