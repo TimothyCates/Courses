@@ -1,0 +1,6 @@
+{
+    "short_name": "Todo App",
+    "name": "A simple dumb todo app with no features",
+    "start_url": ".",
+    "display": "standalone",
+}
