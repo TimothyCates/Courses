@@ -1,5 +1,11 @@
 ol{
   list-style-type:decimal;
   list-style-position: inside;
+  font-size: 1.5em;
+  width: 60%;
+  color: rgba(0,0,0,0.8);
+  font-family:sans-serif;
 }
+
+
 

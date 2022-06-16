@@ -1,0 +1,33 @@
+form{
+  margin: 15px;
+  display: block;
+  width: 100%;
+  min-width: 80vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input{
+  width: 50%;
+  height: 2.2em;
+  border-radius: 3px;
+  border: solid rgba(0,0,0,0.4) 1px;
+  margin: 3px;
+  padding: 2px 5px;
+  outline: none;
+  font-size: 1em;
+}
+
+button{
+  margin: 3px;
+  padding: calc(.7em) 25px;
+  border: 1px solid rgba(0,0,0,0.3);
+  border-radius: 3px;
+  transition: border-color 0.3s
+}
+
+button:hover{
+  border-color: black;
+  cursor: pointer;
+}
