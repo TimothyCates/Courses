@@ -1,0 +1,45 @@
+.Card{
+  perspective: 1000px;
+  width: 180px;
+  height: 300px;
+  margin: 10px;
+}
+
+.Card-Content{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.Card-Front, .Card-Back{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.Card-Back{
+  background-color: #605B56;
+}
+
+.flipOver{
+  animation: flipOver 1s forwards;
+}
+
+.flipBack{
+  animation: flipOver 1s reverse;
+}
+
+.flipped{
+  transform: rotateY(180deg)
+}
+
+@keyframes flipOver {
+ 0%{
+   transform: rotateY(0deg);
+ } 
+ 100%{
+   transform: rotatey(180deg);
+ }
+}
