@@ -23,14 +23,6 @@
   background-color: #605B56;
 }
 
-.flipOver{
-  animation: flipOver 1s forwards;
-}
-
-.flipBack{
-  animation: flipOver 1s reverse;
-}
-
 .flipped{
   transform: rotateY(180deg)
 }
