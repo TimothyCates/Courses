@@ -2,12 +2,10 @@ import { Component } from 'react'
 import './Card.css'
 
 class Card extends Component {
-
-  frontStyle = {
-    backgroundColor: this.props.color,
-  }
-
   render() {
+    let frontStyle = {
+      backgroundColor: this.props.color,
+    }
     const { handleClick, state, id } = this.props
 
     let cardContainer = {
@@ -22,7 +20,7 @@ class Card extends Component {
     return (
       <div className='Card' onClick={() => { if (state != 2) { handleClick(id) } }}>
         <div style={cardContainer}>
-          <div className='Card-Front' style={this.frontStyle} >
+          <div className='Card-Front' style={frontStyle} >
           </div>
           <div className='Card-Back'>
           </div>
