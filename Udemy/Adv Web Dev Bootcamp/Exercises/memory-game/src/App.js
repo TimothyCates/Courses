@@ -59,7 +59,6 @@ class App extends Component {
       cards.push({...defaultData, id: i+1})
     }
     App.shuffle(cards)
-    console.log(cards)
     this.setState({cards: cards}, () => {
       setTimeout(() => {
         this.setAll(cards, cardState.matching)
