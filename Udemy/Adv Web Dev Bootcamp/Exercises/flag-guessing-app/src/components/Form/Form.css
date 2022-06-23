@@ -3,6 +3,8 @@ form{
   justify-content: center;
   padding: 20px;
   color: #545454;
+  align-items: center;
+  font-size: 1.2rem;
 }
 
 .input{
@@ -14,9 +16,6 @@ input{
 }
 input:hover{
   cursor: pointer;
-}
-label{
-  font-size: 1.2rem;
 }
 
 label:hover{
@@ -32,6 +31,7 @@ button{
   color: white;
   font-weight: bold;
   font-size: 1.2rem;
+  margin: 5px;
 }
 
 button:hover{
