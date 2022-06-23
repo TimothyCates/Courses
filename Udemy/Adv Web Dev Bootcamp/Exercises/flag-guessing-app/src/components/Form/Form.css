@@ -1,0 +1,40 @@
+form{
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  color: #545454;
+}
+
+.input{
+  margin: 15px;
+}
+
+input{
+  margin: 3px;
+}
+input:hover{
+  cursor: pointer;
+}
+label{
+  font-size: 1.2rem;
+}
+
+label:hover{
+  cursor: pointer;
+}
+
+button{
+  background-color: #B084CC;
+  border: none;
+  border-radius: 6px;
+  padding: .5rem 1.5em;
+  align-self: center;
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+button:hover{
+  cursor: pointer;
+  background-color: #BE9AD5;
+}
