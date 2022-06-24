@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-import {nanoid} from 'nanoid'
+const nanoid = require('nanoid').nanoid
 
 const todoSchema = new mongoose.Schema({
   id: {
@@ -24,4 +24,3 @@ const todoSchema = new mongoose.Schema({
 let Todo = mongoose.model('Todo', todoSchema)
 
 module.exports = Todo
-
