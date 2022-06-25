@@ -1,12 +1,17 @@
 import { Component } from 'react'
 
 class App extends Component {
-  render () {
+  componentDidMount() {
+    fetch('/api/todos')
+      .then(data => data.json())
+      .then(data => console.log(data))
+  }
+  render() {
     return (
       <div>
-        
+        {this.props.test}
       </div>
-    )
+    ) 
   }
 }
 
